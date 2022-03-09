@@ -8,7 +8,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    permissions: read
+    permissions: read-all
     steps:
     - uses: ncipollo/release-action@v1
       with:
