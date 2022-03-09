@@ -13,8 +13,8 @@ jobs:
       with:
         token: ${{ secrets.GITHUB_TOKEN }} 
         generateReleaseNotes: true
-        body: | 
-'## Changelog
+        body: '
+## Changelog
 
 
 **Sanity Testing Required**: 
