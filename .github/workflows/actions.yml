@@ -9,37 +9,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      contents: write
+      contents: write, read
     steps:
     - uses: ncipollo/release-action@v1
       with:
-        artifacts: "release.tar.gz,foo/*.txt"
-        generateReleaseNotes: true
         token: ${{ secrets.GITHUB_TOKEN }} 
-        body: "        
-## Changelog
-
-
-**Sanity Testing Required**: 
-Describe tests that should be performed, based on the new features and fixes that are not included on [Whiteglove](https://www.notion.so/playcoinc/Test-Plan-15457d2a923f4f47ae7045b9643665cf)
-* Test tutorial flow with bucket A. It should complete and display ABC
-* Test tutorial flow with bucket B. It should skip X and then display DEF
-
-## Release Info
-**Release Owner**: 
-
-
-**Release Type**:
-- [ ] Hotfix
-- [ ] Minor (_Requires PO/Manager sign-off_)
-- [ ] Major (_Requires Customer Support and PO/Manager sign-off_)
-
-**Risk Level and potential Risks**:
-
-
-## Sign-off
-**Smoke Test / Whiteglove**:
-**Final Approval**:
-
-**Rollout Date**:
-"
+        generateReleaseNotes: true
+        bodyFile: "releaseBody.md"
