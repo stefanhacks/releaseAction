@@ -15,4 +15,4 @@ jobs:
       with:
         token: ${{ secrets.GITHUB_TOKEN }} 
         generateReleaseNotes: true
-        bodyFile: "releaseBody.md"
+        bodyFile: ".github/workflows/releaseBody.md"
