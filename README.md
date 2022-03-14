@@ -1,3 +1,1 @@
 # releaseAction
-
-Test
