@@ -14,11 +14,9 @@ jobs:
       with:
         token: ${{ secrets.GITHUB_TOKEN }} 
         generateReleaseNotes: true
-    - name: Changelog
-      id: changelog
-      uses: mikepenz/release-changelog-builder-action@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Get Release
+      id: release
+      uses: KevinRohn/github-full-release-data@v2.0.0
     - name: Update
       uses: ncipollo/release-action@v1
       with:
@@ -26,7 +24,6 @@ jobs:
         allowUpdates: true
         body: '
 ## Changelog
-${{ steps.changelog.outputs.changelog }}
 
 **Sanity Testing Required**: 
 
@@ -59,4 +56,6 @@ Describe tests that should be performed, based on the new features and fixes tha
 
 **Final Approval**:
 
-**Rollout Date**:'
+**Rollout Date**:
+
+${{ steps.release.outputs.body }} }}'
