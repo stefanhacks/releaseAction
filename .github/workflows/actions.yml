@@ -14,12 +14,16 @@ jobs:
       with:
         token: ${{ secrets.GITHUB_TOKEN }} 
         generateReleaseNotes: true
+    - name: Get Release
+      uses: cardinalby/git-get-release-action@v1
+      id: release
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
     - name: Update
       uses: ncipollo/release-action@v1
       with:
         token: ${{ secrets.GITHUB_TOKEN }} 
         allowUpdates: true
-        generateReleaseNotes: true
         body: '
 ## Changelog
 
@@ -55,4 +59,4 @@ Describe tests that should be performed, based on the new features and fixes tha
 
 **Final Approval**:
 
-**Rollout Date**:'
+**Rollout Date**:' + ${{ steps.release.body }}
