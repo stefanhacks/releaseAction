@@ -21,6 +21,8 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }}
         id: ${{ steps.release.outputs.id }}
         body: '
+---
+
 ## Sanity Testing Required:
 
 Describe tests that should be performed, based on the new features and fixes that are not included on [Whiteglove](https://www.notion.so/playcoinc/Test-Plan-15457d2a923f4f47ae7045b9643665cf)
