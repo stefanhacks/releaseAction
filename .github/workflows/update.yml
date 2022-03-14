@@ -1,4 +1,4 @@
-name: Release Action
+name: Update Release
 
 on:
   release:
