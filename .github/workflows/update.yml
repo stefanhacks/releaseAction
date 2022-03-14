@@ -1,24 +1,17 @@
 name: Release Action
 
 on:
-  push:
-    tags:
-      - 'v[0-9]+.[0-9]+.[0-9]+'
+  release:
+    types: created
 
 jobs:
   create:
     runs-on: ubuntu-latest
     steps:
-    - name: Make
-      uses: ncipollo/release-action@v1
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }} 
-        generateReleaseNotes: true
     - name: Update
       uses: ncipollo/release-action@v1
       with:
         token: ${{ secrets.GITHUB_TOKEN }} 
-        generateReleaseNotes: true
         allowUpdates: true
         body: '
 ## Changelog
