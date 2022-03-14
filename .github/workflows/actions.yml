@@ -66,4 +66,4 @@ Describe tests that should be performed, based on the new features and fixes tha
 
 **Final Approval**:
 
-**Rollout Date**:' + ${{ steps.getRelease.body }} + ${{ steps.getRelease.html_url }}
+**Rollout Date**:'
