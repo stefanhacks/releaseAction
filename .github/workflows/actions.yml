@@ -10,15 +10,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Make Release
+      id: makeRelease
       uses: ncipollo/release-action@v1
       with:
         token: ${{ secrets.GITHUB_TOKEN }} 
         generateReleaseNotes: true
     - name: Get Release
+      id: getRelease
       uses: cardinalby/git-get-release-action@v1
-      id: release
       env:
         GITHUB_TOKEN: ${{ github.token }}
+      with:
+        tag: ${{ steps.makeRelease.id }}
     - name: Update
       uses: ncipollo/release-action@v1
       with:
@@ -59,4 +62,6 @@ Describe tests that should be performed, based on the new features and fixes tha
 
 **Final Approval**:
 
-**Rollout Date**:'
+**Rollout Date**:
+
+${{ steps.getRelease.body }}'
