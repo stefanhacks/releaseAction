@@ -23,17 +23,28 @@ jobs:
         body: '
 ---
 
- ## Sanity Testing Required:
+## Sanity Testing Required:
+
 Describe tests that should be performed, based on the new features and fixes that are not included on [Whiteglove](https://www.notion.so/playcoinc/Test-Plan-15457d2a923f4f47ae7045b9643665cf)
+
 * Test tutorial flow with bucket A. It should complete and display ABC
+
 * Test tutorial flow with bucket B. It should skip X and then display DEF
 
+
 ## Release Info
+
 **Release Owner**:
+
 **Risk Level and Risks**:
+
 **Release Type**: Hotfix / Minor (_Requires PO/Manager sign-off_) / Major (_Requires Customer Support and PO/Manager sign-off_)
 
+
 ## Sign-off
+
 **Smoke Test / Whiteglove**:
+
 **Final Approval**:
+
 **Rollout Date**:'
