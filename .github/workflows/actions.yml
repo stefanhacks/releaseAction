@@ -10,28 +10,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Make Release
-      id: makeRelease
       uses: ncipollo/release-action@v1
       with:
         token: ${{ secrets.GITHUB_TOKEN }} 
         generateReleaseNotes: true
-    - name: Get Release
-      id: getRelease
-      uses: cardinalby/git-get-release-action@v1
-      env:
-        GITHUB_TOKEN: ${{ github.token }}
-      with:
-        releaseId: ${{ steps.makeRelease.id }}
     - name: Update
       uses: ncipollo/release-action@v1
       with:
         token: ${{ secrets.GITHUB_TOKEN }} 
+        generateReleaseNotes: true
         allowUpdates: true
         body: '
-${{ steps.getRelease.body }}
-
-${{ steps.getRelease.html_url }}
-
 ## Changelog
 
 
