@@ -20,7 +20,7 @@ jobs:
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         id: ${{ steps.release.outputs.id }}
-        body: |
+        body: '
           ---
 
           ## Sanity Testing Required:
