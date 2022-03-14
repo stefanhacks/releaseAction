@@ -10,16 +10,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Make
+      id: release
       uses: ncipollo/release-action@v1
       with:
         token: ${{ secrets.GITHUB_TOKEN }} 
         generateReleaseNotes: true
-    - name: Update
-      uses: ncipollo/release-action@v1
+    - name: Edit
+      uses: irongut/EditRelease@v1.1.0
       with:
-        token: ${{ secrets.GITHUB_TOKEN }} 
-        allowUpdates: true
-        body: '
+        token: ${{ secrets.GITHUB_TOKEN }}
+        id: ${{ steps.release.output.id }}
+        body: "
 ## Changelog
 
 **Sanity Testing Required**: 
@@ -53,4 +54,4 @@ Describe tests that should be performed, based on the new features and fixes tha
 
 **Final Approval**:
 
-**Rollout Date**:'
+**Rollout Date**:"
