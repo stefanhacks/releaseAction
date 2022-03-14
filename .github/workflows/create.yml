@@ -20,7 +20,7 @@ jobs:
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         id: ${{ steps.release.outputs.id }}
-        body: "
+        body: '
 ---
 
  ## Sanity Testing Required:
@@ -36,4 +36,4 @@ Describe tests that should be performed, based on the new features and fixes tha
 ## Sign-off
 **Smoke Test / Whiteglove**:
 **Final Approval**:
-**Rollout Date**:"
+**Rollout Date**:'
