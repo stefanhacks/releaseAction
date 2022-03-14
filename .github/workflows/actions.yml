@@ -9,7 +9,7 @@ jobs:
   create:
     runs-on: ubuntu-latest
     steps:
-    - name: Make Release
+    - name: Make
       uses: ncipollo/release-action@v1
       with:
         token: ${{ secrets.GITHUB_TOKEN }} 
