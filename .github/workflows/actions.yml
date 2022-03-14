@@ -28,6 +28,10 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }} 
         allowUpdates: true
         body: '
+${{ steps.getRelease.body }}
+
+${{ steps.getRelease.html_url }}
+
 ## Changelog
 
 
@@ -62,6 +66,4 @@ Describe tests that should be performed, based on the new features and fixes tha
 
 **Final Approval**:
 
-**Rollout Date**:
-
-${{ steps.getRelease.body }}'
+**Rollout Date**:' + ${{ steps.getRelease.body }} + ${{ steps.getRelease.html_url }}
