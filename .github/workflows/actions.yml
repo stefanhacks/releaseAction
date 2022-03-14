@@ -9,10 +9,26 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v1
+    - uses: tubone24/setup-nim-action@v1.0.1
+    - name: Install Dependencies
+      run: nimble install -d --accept
+    - name: Build
+      run: nimble build -d:release
+    - name: get version
+      id: get_version
+      run: |
+        echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
     - uses: ncipollo/release-action@v1
       with:
         token: ${{ secrets.GITHUB_TOKEN }} 
         generateReleaseNotes: true
+    - name: update release
+      id: update_release
+      uses: tubone24/update_release@v1.0
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
+      with:
         body: '
 ## Changelog
 
