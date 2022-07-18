@@ -32,12 +32,12 @@ jobs:
 
           ## Release Info
 
-          **Release Owner**: @${{ github.actor }}
+          * Release Owner: @${{ github.actor }}
 
-          **Release Type / Risks**: Hotfix / Minor (_PO / Manager sign-off_) / Major (_Customer Support / PO / Manager sign-off_)
+          * Release Type / Risks: Hotfix / Minor (_PO / Manager sign-off_) / Major (_Customer Support / PO / Manager sign-off_)
 
           ## Sign-off
 
-          **Approvals**:
+          *Approvals:
 
-          **Rollout Date**: ${{ steps.date.outputs.date }}'
+          *Rollout Date: ${{ steps.date.outputs.date }}'
