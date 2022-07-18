@@ -17,7 +17,7 @@ jobs:
         generateReleaseNotes: true
     - name: Date
       id: date
-      run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
+      run: echo "::set-output name=date::$(date +'%b %d, %Y' - %I:%M %p)"
     - name: Edit
       uses: irongut/EditRelease@v1.1.0
       with:
@@ -27,6 +27,7 @@ jobs:
           ---
 
           ## Testing Details:
+          
           * Basic [Whiteglove](https://www.notion.so/playcoinc/Test-Plan-15457d2a923f4f47ae7045b9643665cf)
 
           ## Release Info
