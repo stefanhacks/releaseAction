@@ -17,7 +17,7 @@ jobs:
         generateReleaseNotes: true
     - name: Date
       id: date
-      run: echo "::set-output name=date::$(date +'%b %d, %Y, at %I:%M %p')"
+      run: echo "::set-output name=date::$(date +'%b %d, %Y, %I:%M %p')"
     - name: Edit
       uses: irongut/EditRelease@v1.1.0
       with:
@@ -34,7 +34,7 @@ jobs:
 
           **Release Owner**: @${{ github.actor }}
 
-          **Release Type and Risks**: Hotfix / Minor (_PO/Manager sign-off_) / Major (_Customer Support/PO/Manager sign-off_)
+          **Release Type / Risks**: Hotfix / Minor (_PO / Manager sign-off_) / Major (_Customer Support / PO / Manager sign-off_)
 
           ## Sign-off
 
