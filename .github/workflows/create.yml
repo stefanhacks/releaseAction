@@ -34,7 +34,7 @@ jobs:
 
           ## Release Info
 
-          **Release Owner**:
+          **Release Owner**: ${{ github.actor }}
 
           **Risk Level and Risks**:
 
