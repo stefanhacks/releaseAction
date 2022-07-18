@@ -15,37 +15,28 @@ jobs:
       with:
         token: ${{ secrets.GITHUB_TOKEN }} 
         generateReleaseNotes: true
+    - name: Date
+      id: date
+      run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
     - name: Edit
       uses: irongut/EditRelease@v1.1.0
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         id: ${{ steps.release.outputs.id }}
-        body: '
-          ---
+        body: '---
 
-          ## Sanity Testing Required:
-
-          Describe tests that should be performed, based on the new features and fixes that are not included on [Whiteglove](https://www.notion.so/playcoinc/Test-Plan-15457d2a923f4f47ae7045b9643665cf)
-          
-          * Test tutorial flow with bucket A. It should complete and display ABC
-          
-          * Test tutorial flow with bucket B. It should skip X and then display DEF
-
+          ## Testing Details:
+          * Basic [Whiteglove](https://www.notion.so/playcoinc/Test-Plan-15457d2a923f4f47ae7045b9643665cf)
 
           ## Release Info
 
-          **Release Owner**: ${{ github.actor }}
+          **Release Owner**: @${{ github.actor }}
 
-          **Risk Level and Risks**:
-
-          **Release Type**: Hotfix / Minor (_Requires PO/Manager sign-off_) / Major (_Requires Customer Support and PO/Manager sign-off_)
-
+          **Release Type and Risks**: Hotfix / Minor (_PO/Manager sign-off_) / Major (_Customer Support/PO/Manager sign-off_)
 
           ## Sign-off
 
-          **Smoke Test / Whiteglove**:
+          **Approvals**:
 
-          **Final Approval**:
-
-          **Rollout Date**:'
+          **Rollout Date**: ${{ steps.date.outputs.date }}'
 
